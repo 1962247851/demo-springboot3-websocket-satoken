@@ -1,5 +1,7 @@
 package tech.ordinaryroad.demo
 
+import cn.dev33.satoken.stp.StpUtil
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 /**
@@ -11,8 +13,12 @@ import org.springframework.stereotype.Service
 @Service
 class DemoService {
 
-    fun userinfo(){
+    fun doSomething() {
+        log.info("${StpUtil.getLoginIdAsString()} did something...")
+    }
 
+    companion object {
+        val log = LoggerFactory.getLogger(DemoService::class.java)
     }
 
 }

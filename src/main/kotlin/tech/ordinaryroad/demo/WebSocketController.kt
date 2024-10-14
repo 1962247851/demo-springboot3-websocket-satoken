@@ -23,7 +23,8 @@ import java.time.LocalDateTime
 @Controller
 class WebSocketController(
     val objectMapper: ObjectMapper,
-    val simpMessagingTemplate: SimpMessagingTemplate
+    val simpMessagingTemplate: SimpMessagingTemplate,
+    val demoService: DemoService
 ) {
     @MessageMapping("/demo")
     @SendTo("/topic/demo")
@@ -45,18 +46,15 @@ class WebSocketController(
             )
         }.start()
 
-
         var exception: Exception? = null
-        var demoUser: DemoUser? = null
         try {
-            demoUser = DemoController.map[StpUtil.getLoginIdAsString()]
+            demoService.doSomething()
         } catch (e: Exception) {
             exception = e
             e.printStackTrace()
         }
         return objectMapper.createObjectNode().apply {
             putPOJO("request", request)
-            putPOJO("userinfo", demoUser)
             putPOJO("exception", ExceptionUtils.getRootCauseMessage(exception))
         }
     }
