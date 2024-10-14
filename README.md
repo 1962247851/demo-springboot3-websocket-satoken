@@ -2,7 +2,7 @@
 
 ### 问题
 
-如何在收到WebSocket的消息后，使用StpUtil.getLoginId()读取当前登录用户？
+如何在收到WebSocket的消息后，在其他Service方法中，使用StpUtil.getLoginId()读取当前登录用户？
 
 ```
 cn.dev33.satoken.exception.NotWebContextException: 非 web 上下文无法获取 HttpServletRequest
