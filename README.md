@@ -33,9 +33,17 @@ cn.dev33.satoken.exception.NotWebContextException: 非 web 上下文无法获取
 
 ### 复现步骤
 
-1. 访问登录接口，获取token，http://localhost:8080/login/1
-2. 访问 http://localhost:8080，填入token并连接
-3. 随便发送一条命令
+#### 1 访问登录接口，获取token，http://localhost:8080/login/1
+
+![docs/login.png](docs/login.png) ![docs/userinfo.png](docs/userinfo.png)
+
+#### 2 访问 http://localhost:8080 填入token并连接
+
+#### 3 随便发送一条命令
+
+![docs/exception.png](docs/exception.png)
+
+![docs/console.png](docs/console.png)
 
 ### 项目接口
 
